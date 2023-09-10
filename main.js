@@ -2,13 +2,13 @@ function createGrid(columns, rows){
     var grid = document.createElement('div');
     grid.className = 'grid';
 
-    for (var i = 0; i < columns; ++i) {
+    for (var col = 0; col < columns; ++col) {
         var column = document.createElement('div'); // create column
         column.className = 'column';
-        for (var j = 0; j < rows; ++j) {
+        for (var r = 0; r < rows; ++r) {
             var row = document.createElement('div'); // create row
             row.className = 'row';
-            row.textContent = i + '-' +j; // set text
+            row.textContent = col + '-' +r; // set text
             column.appendChild(row); // append row in column
         }
         grid.appendChild(column); // append column inside grid

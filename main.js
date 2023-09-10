@@ -1,8 +1,7 @@
 function createGrid(columns, rows){
-    
     var grid = document.createElement('div');
     grid.className = 'grid';
-    
+
     for (var i = 0; i < columns; ++i) {
         var column = document.createElement('div'); // create column
         column.className = 'column';

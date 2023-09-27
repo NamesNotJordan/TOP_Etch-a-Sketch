@@ -1,7 +1,12 @@
 document.addEventListener("DOMContentLoaded", function(){
     createGrid(16);
-    console.log("script ran");
+    
+    document.querySelector("#popup-btn").addEventListener(this.onclick,function(){
+        let size = askSize();
+        createGrid(size);
+    })
 })
+//hover
 
 function createGrid(size){
     const board = document.querySelector(".board");
@@ -12,7 +17,29 @@ function createGrid(size){
 
     for(let i =0; i< numberOfDivs;i++){
         let div = document.createElement("div");
-        div.style.border ="1px solid black";
+        //hover listeners
+        div.addEventListener(onmouseover,function(){
+            div.style.backgroundColor = "blue";
+        })
+        div.addEventListener(onmouseout, function(){
+            div.style.backgroundColor = "white";
+        })
         board.insertAdjacentElement("beforeend",div);
+    }
+}
+
+function askSize(){
+    let choice = prompt("Gimme the grid size");
+    let msg = document.querySelector("#msg");
+
+    if (choice == "") {
+        msg.innerHTML ="Please give me a number :(";
+    }
+    else if (choice <= 0 || choice > 100) {
+        msg.innerHTML = "Woah Buddy! Only numbers between 1 and 100"
+    }
+    else {
+        msg.innerHTML = "Draw away :)";
+        return choice;
     }
 }

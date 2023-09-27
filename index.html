@@ -10,14 +10,15 @@
     <h1>Etch-a-Sketch</h1>
     <div class="header">
         <p>Select Size</p>
-        <button id="popup-btn">Select</button>
+        <button id="popup-btn" onclick="askSize()">Select</button>
     </div>
+    <p id="msg"></p>
     <div class="board">
 
     </div>
     <div class="footer">
-        <button>Black</button>
-        <button>Random Brush</button>
+        <button onclick="setColour('black')">Black</button>
+        <button onclick="setColour('random')">Random Brush</button>
         <button>Clear</button>
     </div>
 </body>

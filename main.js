@@ -1,7 +1,15 @@
+//default pen colour
+let colour = "black"
+
 document.addEventListener("DOMContentLoaded", function(){
     createGrid(16);
-    console.log("script ran");
+    
+    document.querySelector("#popup-btn").addEventListener(this.onclick,function(){
+        let size = askSize();
+        createGrid(size);
+    })
 })
+//hover
 
 function createGrid(size){
     const board = document.querySelector(".board");
@@ -12,7 +20,38 @@ function createGrid(size){
 
     for(let i =0; i< numberOfDivs;i++){
         let div = document.createElement("div");
-        div.style.border ="1px solid black";
+        //hover listeners
+        div.addEventListener("mouseover", colourDiv)
         board.insertAdjacentElement("beforeend",div);
+    }
+}
+
+function askSize(){
+    let choice = prompt("Gimme the grid size");
+    let msg = document.querySelector("#msg");
+
+    if (choice == "") {
+        msg.innerHTML ="Please give me a number :(";
+    }
+    else if (choice <= 0 || choice > 100) {
+        msg.innerHTML = "Woah Buddy! Only numbers between 1 and 100"
+    }
+    else {
+        msg.innerHTML = "Draw away :)";
+        return choice;
+    }
+}
+
+//set pen colour
+function setColour(colourChoice){
+    colour = colourChoice;
+}
+
+function colourDiv(){
+    if(colour == 'random'){
+        this.style.backgroundColor = `hsl(${Math.random()* 360}, 100%, 50%)`
+    }
+    else{
+        this.style.backgroundColor = colour;
     }
 }

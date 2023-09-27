@@ -20,6 +20,7 @@ function createGrid(size){
 
     for(let i =0; i< numberOfDivs;i++){
         let div = document.createElement("div");
+        div.className = "board-square"
         //hover listeners
         div.addEventListener("mouseover", colourDiv)
         board.insertAdjacentElement("beforeend",div);
@@ -54,4 +55,9 @@ function colourDiv(){
     else{
         this.style.backgroundColor = colour;
     }
+}
+
+function clearBoard(){
+    let squares = document.querySelectorAll(".board-square");
+    squares.forEach((square) => square.style.backgroundColor = "white")
 }

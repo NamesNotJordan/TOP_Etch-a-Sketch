@@ -18,10 +18,10 @@ function createGrid(size){
     for(let i =0; i< numberOfDivs;i++){
         let div = document.createElement("div");
         //hover listeners
-        div.addEventListener(onmouseover,function(){
+        div.addEventListener("mouseover",function(){
             div.style.backgroundColor = "blue";
         })
-        div.addEventListener(onmouseout, function(){
+        div.addEventListener("mouseout", function(){
             div.style.backgroundColor = "white";
         })
         board.insertAdjacentElement("beforeend",div);

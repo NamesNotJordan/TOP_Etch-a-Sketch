@@ -1,3 +1,6 @@
+//default pen colour
+let colour = "black"
+
 document.addEventListener("DOMContentLoaded", function(){
     createGrid(16);
     
@@ -18,12 +21,7 @@ function createGrid(size){
     for(let i =0; i< numberOfDivs;i++){
         let div = document.createElement("div");
         //hover listeners
-        div.addEventListener("mouseover",function(){
-            div.style.backgroundColor = "blue";
-        })
-        div.addEventListener("mouseout", function(){
-            div.style.backgroundColor = "white";
-        })
+        div.addEventListener("mouseover", colourDiv)
         board.insertAdjacentElement("beforeend",div);
     }
 }
@@ -41,5 +39,19 @@ function askSize(){
     else {
         msg.innerHTML = "Draw away :)";
         return choice;
+    }
+}
+
+//set pen colour
+function setColour(colourChoice){
+    colour = colourChoice;
+}
+
+function colourDiv(){
+    if(colour == 'random'){
+        this.style.backgroundColor = `hsl(${Math.random()* 360}, 100%, 50%)`
+    }
+    else{
+        this.style.backgroundColor = colour;
     }
 }

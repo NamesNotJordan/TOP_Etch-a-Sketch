@@ -1,3 +1,8 @@
+document.addEventListener("DOMContentLoaded", function(){
+    createGrid(16);
+    console.log("script ran");
+})
+
 function createGrid(size){
     const board = document.querySelector(".board");
     board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -11,6 +16,3 @@ function createGrid(size){
         board.insertAdjacentElement("beforeend",div);
     }
 }
-
-document.addEventListener("DOMContentLoaded", createGrid(16))
-
